@@ -1,0 +1,10 @@
+@import './_fonts';
+@import './_tables';
+
+
+body {
+  height: 100%;
+  font: 62.5% 'lato', sans-serif;
+  overflow-y: scroll !important;
+  position: relative;
+}
