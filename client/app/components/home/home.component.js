@@ -1,7 +1,7 @@
-import template from './searchCustomer.html';
-import './searchCustomer.scss';
+import template from './home.html';
+import './home.scss';
 
-class SearchCustomerController {
+class HomeController {
 
   constructor($log, $filter, CoreConstants) {
     'ngInject';
@@ -19,6 +19,6 @@ export default  {
   bindings: {
   },
   template,
-  controller: SearchCustomerController,
+  controller: HomeController,
   controllerAs: 'vm'
 };

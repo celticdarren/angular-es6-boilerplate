@@ -51,3 +51,59 @@
   font-weight: 700;
   font-style: normal;
 }
+
+/*===== Roboto =====*/
+//Regular
+@font-face {
+  font-family: 'roboto';
+  src:  url('assets/fonts/roboto/Roboto-Regular-webfont.eot');
+  src:  url('assets/fonts/roboto/Roboto-Regular-webfont.eot') format('embedded-opentype'),
+  url('assets/fonts/roboto/Roboto-Regular-webfont.ttf') format('truetype'),
+  url('assets/fonts/roboto/Roboto-Regular-webfont.woff') format('woff');
+  font-weight: normal; //400
+  font-style: normal;
+}
+
+//Regular italic
+@font-face {
+  font-family: 'roboto';
+  src:  url('assets/fonts/roboto/Roboto-Italic-webfont.eot');
+  src:  url('assets/fonts/roboto/Roboto-Italic-webfont.eot') format('embedded-opentype'),
+  url('assets/fonts/roboto/Roboto-Italic-webfont.ttf') format('truetype'),
+  url('assets/fonts/roboto/Roboto-Italic-webfont.woff') format('woff');
+  font-weight: normal; //400
+  font-style: italic;
+}
+
+//Bold
+@font-face {
+  font-family: 'roboto';
+  src:  url('assets/fonts/roboto/Roboto-Bold-webfont.eot');
+  src:  url('assets/fonts/roboto/Roboto-Bold-webfont.eot') format('embedded-opentype'),
+  url('assets/fonts/roboto/Roboto-Bold-webfont.ttf') format('truetype'),
+  url('assets/fonts/roboto/Roboto-Bold-webfont.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+}
+
+//Bold Italic
+@font-face {
+  font-family: 'roboto';
+  src:  url('assets/fonts/roboto/Roboto-BoldItalic-webfont.eot');
+  src:  url('assets/fonts/roboto/Roboto-BoldItalic-webfont.eot') format('embedded-opentype'),
+  url('assets/fonts/roboto/Roboto-BoldItalic-webfont.ttf') format('truetype'),
+  url('assets/fonts/roboto/Roboto-BoldItalic-webfont.woff') format('woff');
+  font-weight: 700;
+  font-style: italic;
+}
+
+//Light
+@font-face {
+  font-family: 'roboto';
+  src:  url('assets/fonts/roboto/Roboto-Light-webfont.eot');
+  src:  url('assets/fonts/roboto/Roboto-Light-webfont.eot') format('embedded-opentype'),
+  url('assets/fonts/roboto/Roboto-Light-webfont.ttf') format('truetype'),
+  url('assets/fonts/roboto/Roboto-Light-webfont.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+}

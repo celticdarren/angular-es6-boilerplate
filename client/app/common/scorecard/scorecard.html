@@ -1,0 +1,34 @@
+<banner></banner>
+<p ng-if="vm.scoreType === 'hole'">Hole by hole best score</p>
+<p ng-if="vm.scoreType === 'round'">{{vm.course[0].bestPlayer}} has the best round for {{vm.selectedCourse}}</p>
+<table class="scorecard">
+  <thead>
+  <tr>
+    <th>Hole</th>
+    <th>Yellow yards</th>
+    <th>Par</th>
+    <th>{{vm.scoreType === 'hole' ? 'Best score' : 'Score'}}</th>
+    <th ng-if="vm.scoreType === 'hole'">Player</th>
+  </tr>
+  </thead>
+  <tbody>
+
+  <tr ng-repeat="hole in vm.course">
+    <td>{{hole.hole}}</td>
+    <td>{{hole.yards}}</td>
+    <td>{{hole.par}}</td>
+    <td>{{vm.scoreType === 'hole' ? hole.bestScore.score : hole.bestScore}}</td>
+    <td ng-if="vm.scoreType === 'hole'">{{hole.bestScore.player}}</td>
+  </tr>
+  <tr class="scorecard__totalRow">
+    <td>Total</td>
+    <td>{{vm.getYardsTotal()}}</td>
+    <td>{{vm.getParTotal()}}</td>
+    <td>{{vm.getScoreTotal()}}</td>
+    <td ng-if="vm.scoreType === 'hole'">&nbsp;</td>
+  </tr>
+  </tbody>
+
+
+
+</table>

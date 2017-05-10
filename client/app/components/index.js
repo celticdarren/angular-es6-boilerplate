@@ -1,7 +1,7 @@
-import SearchModule from './search';
+import HomeModule from './home';
 
 const module = angular.module('app.components', [
-  SearchModule
+  HomeModule
 ]);
 
 export default module.name;
