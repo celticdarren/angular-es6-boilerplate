@@ -1,4 +1,6 @@
 import angular from 'angular';
+import * as firebase from 'firebase';
+import FirebaseModule from 'angularfire';
 import CommonModule from './common';
 import ComponentsModule from './components';
 import AppComponent from './app.component';
@@ -14,6 +16,7 @@ angular
     AngularUiRouter,
     CommonModule,
     ComponentsModule,
+    FirebaseModule
   ])
 
   // Application config
@@ -31,6 +34,18 @@ angular
           }
         }
       });
+  })
+  .config(function(){
+    let config = {
+      apiKey: "AIzaSyCbyB-5b3JkX0aVtVOvpefB-Up9-f4iZ4o",
+      authDomain: "makethecut-ed60d.firebaseapp.com",
+      databaseURL: "https://makethecut-ed60d.firebaseio.com",
+      projectId: "makethecut-ed60d",
+      storageBucket: "makethecut-ed60d.appspot.com",
+      messagingSenderId: "601191005002"
+    };
+
+    firebase.initializeApp(config);
   })
 
   .run(($transitions, $location, $window) => {
