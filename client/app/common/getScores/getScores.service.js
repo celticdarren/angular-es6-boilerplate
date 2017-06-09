@@ -3,6 +3,7 @@ export default function (CoreConstants) {
 
   return {
     getBestHoleScorecard(course, type) {
+      console.log("Dev branch test");
       const scorecard = [];
       let allHoles = CoreConstants.courses[course];
 
