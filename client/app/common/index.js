@@ -3,6 +3,7 @@ import ScorecardModule from './scorecard';
 import HeadingModule from './heading';
 import NavbarModule from './navbar';
 import AuthModule from './auth';
+import GetScoresModule from './getScores';
 
 const module = angular
   .module('app.common', [
@@ -10,7 +11,8 @@ const module = angular
     ScorecardModule,
     HeadingModule,
     NavbarModule,
-    AuthModule
+    AuthModule,
+    GetScoresModule
   ]);
 
 export default module.name;

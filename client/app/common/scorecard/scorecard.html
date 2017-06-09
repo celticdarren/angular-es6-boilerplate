@@ -1,38 +1,28 @@
-{{vm.testing}}
 <div class="row">
   <div class="small-12 columns text-center">
-    <h3 ng-if="vm.scoreType === 'hole'">Hole by hole best score</h3>
-    <h3 ng-if="vm.scoreType === 'round'">The best score for {{vm.selectedCourse}}: {{vm.course[0].bestPlayer}}</h3>
+    <h3 ng-if="vm.isBestHoleCard()">Hole by hole best score</h3>
+    <h3 ng-if="vm.isBestRoundCard()">The best score for {{vm.selectedCourse}}: {{vm.course[0].bestPlayer}}</h3>
   </div>
 </div>
 <div class="row">
   <div class="small-12 columns">
-    <table class="scorecard">
+    <table ng-class="vm.getRoundTypeClass()" class="scorecard">
       <thead>
       <tr>
         <th>Hole</th>
         <th>Yellow yards</th>
         <th>Par</th>
         <th>Score</th>
-        <th ng-if="vm.scoreType === 'hole'">Player</th>
+        <th ng-if="vm.isBestHoleCard()">Player</th>
       </tr>
       </thead>
       <tbody>
-
-      <tr ng-repeat="hole in vm.course">
-        <td>{{hole.hole}}</td>
-        <td>{{hole.yards}}</td>
-        <td>{{hole.par}}</td>
-        <td ng-class="vm.scoreCategory(hole)"><span>{{vm.scoreType === 'hole' ? hole.bestScore.score : hole.bestScore}}</span></td>
-        <td ng-if="vm.scoreType === 'hole'">{{hole.bestScore.player}}</td>
-      </tr>
-      <tr class="scorecard__totalRow">
-        <td>Total</td>
-        <td>{{vm.getYardsTotal()}}</td>
-        <td>{{vm.getParTotal()}}</td>
-        <td>{{vm.getScoreTotal()}}</td>
-        <td ng-if="vm.scoreType === 'hole'">&nbsp;</td>
-      </tr>
+        <tr ng-repeat="hole in vm.courseInformation">
+          <td>{{hole.holeNumber}}</td>
+          <td>{{hole.holeYards}}</td>
+          <td>{{hole.holePar}}</td>
+          <td>{{vm.getBestHoleScore(hole.holeNumber)}}</td>
+        </tr>
       </tbody>
 
 

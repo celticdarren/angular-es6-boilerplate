@@ -1,7 +1,7 @@
-import AuthFactory from './auth.factory';
+import AuthService from './auth.service';
 
 const module = angular
   .module('app.common.auth', [])
-  .factory('auth', AuthFactory);
+  .service('AuthService', AuthService);
 
 export default module.name;
