@@ -2,28 +2,17 @@ export default function (CoreConstants) {
   'ngInject';
 
   return {
-    getBestHoleScorecard(course, type) {
-      console.log("Dev branch test");
-      const scorecard = [];
-      let allHoles = CoreConstants.courses[course];
 
-      switch (type) {
-        case 'hole':
-          for (let hole in allHoles) {
-            scorecard.push(this.createHoleScoreObject(hole, allHoles, course));
-          }
-          break;
-        case 'round':
-          for (let hole in allHoles) {
-            scorecard.push(this.createBestScoreObject(hole, allHoles, course));
-          }
-      }
+    players: CoreConstants.players,
+
+    getBestHoleScores(course) {
+      const scorecard = [];
 
       return scorecard;
     },
 
-    getCourseInformation(course) {
-      return CoreConstants.courses[course];
-    }
+    getCourseInformation(selectedCourse) {
+      return CoreConstants.courses.find((course) => course.course_id === selectedCourse);
+    },
   }
 }

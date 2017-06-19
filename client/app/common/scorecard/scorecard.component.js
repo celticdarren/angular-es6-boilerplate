@@ -28,13 +28,12 @@ class ScorecardController {
 
   $onInit() {
     if(this.isBestHoleCard()) {
-      console.log("Best hole card");
       this.courseInformation = this.GetScoresService.getCourseInformation(this.selectedCourse);
-      debugger;
+      this.scores = this.GetScoresService.getBestHoleScores(this.selectedCourse);
     }
 
     if(this.isBestRoundCard()) {
-      console.log("Best round card");
+    //
     }
   }
 
