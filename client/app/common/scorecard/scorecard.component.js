@@ -1,5 +1,6 @@
 import template from './scorecard.html';
 import './scorecard.scss';
+import 'lodash';
 import * as firebase from 'firebase';
 
 class ScorecardController {
@@ -28,13 +29,15 @@ class ScorecardController {
 
   $onInit() {
     if(this.isBestHoleCard()) {
-      console.log("Best hole card");
       this.courseInformation = this.GetScoresService.getCourseInformation(this.selectedCourse);
-      debugger;
+      this.scores = this.GetScoresService.getBestHoleScores(this.selectedCourse);
+      this.courseInformation.course_holes.map((hole, index) => {
+        Object.assign(hole, this.scores[index]);
+      });
     }
 
     if(this.isBestRoundCard()) {
-      console.log("Best round card");
+    //
     }
   }
 
@@ -56,6 +59,24 @@ class ScorecardController {
     if(this.isBestHoleCard()) return 'isBestHoleCard';
     if(this.isBestRoundCard()) return 'isBestRoundCard';
   }
+
+  getPlayerNames(players) {
+    let playerNames = "";
+    if(players.length > 1) {
+      for(let player of players) {
+        if(players[players.length - 1] === player) {
+          playerNames += ` & ${player}`;
+        } else if(player !== players[0]) {
+          playerNames += `, ${player}`;
+        } else {
+          playerNames = player;
+        }
+      }
+    } else {
+      playerNames = players[0];
+    }
+    return playerNames;
+  };
 
   getBestHoleScore(hole) {
     //TODO: calculate best hole

@@ -17,11 +17,13 @@
       </tr>
       </thead>
       <tbody>
-        <tr ng-repeat="hole in vm.courseInformation">
+        <tr ng-repeat="hole in vm.courseInformation.course_holes">
           <td>{{hole.holeNumber}}</td>
           <td>{{hole.holeYards}}</td>
           <td>{{hole.holePar}}</td>
-          <td>{{vm.getBestHoleScore(hole.holeNumber)}}</td>
+          <td>{{hole.score}}</td>
+          <td>{{vm.getPlayerNames(hole.player_id)}}</td>
+          <td>{{hole.player_id}}</td>
         </tr>
       </tbody>
 
