@@ -7,39 +7,31 @@ export default function (CoreConstants) {
     scores: CoreConstants.scores,
 
     getBestHoleScores(course) {
-
       const courseScores = this.scores.filter((score) => score.course_id === course);
-      let scorecard = [];
-      for (let i = 0; i < 18; i++) {
-        scorecard.push({
-          "player_id": [],
-          "score": 11
-        });
+      const range = Array.from({length: 18}, (value, index) => index);
+      const INITIAL = {
+        "player_id": [],
+        "score": 11
+      };
+
+      if (courseScores.length === 0) {
+        return range.map(() => Object.assign({}, INITIAL));
       }
 
-      if (courseScores.length > 0) {
-        courseScores.map((scoreEntry) => {
-          let player_id = scoreEntry.player_id;
-          scoreEntry.score.map((score, index) => {
+      return range.map((index) => {
+        return courseScores.reduce((total, current) => {
+          const currentScore = current.score[index];
+          if (currentScore < total.score) {
+            total.player_id = [];
+            total.score = currentScore;
+            total.player_id.push(current.player_id);
+          } else if (currentScore === total.score && !total.player_id.includes(current.player_id)) {
+            total.player_id.push(current.player_id);
+          }
 
-            let thisScorecardHole = scorecard[index].score;
-
-            if (score === thisScorecardHole) {
-
-              if (scorecard[index].player_id.indexOf(player_id) < 0) {
-                scorecard[index].player_id.push(player_id);
-              }
-
-            } else if (score < thisScorecardHole) {
-              scorecard[index].score = score;
-              scorecard[index].player_id = [player_id];
-            }
-
-          });
-        })
-      }
-
-      return scorecard;
+          return total;
+        }, Object.assign({}, INITIAL));
+      });
     },
 
     getCourseInformation(selectedCourse) {
