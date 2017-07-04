@@ -34,6 +34,20 @@ export default function (CoreConstants) {
       });
     },
 
+    getBestRoundScore(course) {
+      const courseScores = this.scores.filter((score) => score.course_id === course);
+
+      return this.scores.map((round) => {
+        return {
+          player_id: round.player_id,
+          score: round.score,
+          totalScore: round.score.reduce((total, num) => total + num)
+        };
+      }).reduce((total, current) => {
+        return current.totalScore < total.totalScore ? current : total;
+      });
+    },
+
     getCourseInformation(selectedCourse) {
       return CoreConstants.courses.find((course) => course.course_id === selectedCourse);
     },
