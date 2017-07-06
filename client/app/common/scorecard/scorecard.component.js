@@ -103,7 +103,23 @@ class ScorecardController {
 
   }
 
-
+  getPlayerNames(players) {
+    let playerNames = "";
+    if(players.length > 1) {
+      for(let player of players) {
+        if(players[players.length - 1] === player) {
+          playerNames += ` & ${player}`;
+        } else if(player !== players[0]) {
+          playerNames += `, ${player}`;
+        } else {
+          playerNames = player;
+        }
+      }
+    } else {
+      playerNames = players[0];
+    }
+    return playerNames;
+  };
   // scoreCategory(hole) {
   //   if (this.scoreType === 'hole') {
   //     switch(hole.bestScore.score - hole.par) {
