@@ -25,11 +25,32 @@
           <td>{{hole.score}}</td>
           <td ng-if="vm.isBestHoleCard()">{{vm.getPlayerNames(hole.player_id)}}</td>
         </tr>
-        <tr>
+        <tr class="scorecard__totalsRow">
           <td><strong>OUT</strong></td>
           <td>{{vm.getTotalScore(true, vm.courseInformation.course_holes, 'yards')}}</td>
           <td>{{vm.getTotalScore(true, vm.courseInformation.course_holes, 'par')}}</td>
           <td>{{vm.getTotalScore(true, vm.courseInformation.course_holes, 'score')}}</td>
+          <td ng-if="vm.isBestHoleCard()">&nbsp;</td>
+        </tr>
+        <tr ng-repeat="hole in vm.courseInformation.course_holes | limitTo: -9">
+          <td>{{hole.holeNumber}}</td>
+          <td>{{hole.holeYards}}</td>
+          <td>{{hole.holePar}}</td>
+          <td>{{hole.score}}</td>
+          <td ng-if="vm.isBestHoleCard()">{{vm.getPlayerNames(hole.player_id)}}</td>
+        </tr>
+        <tr class="scorecard__totalsRow">
+          <td><strong>OUT</strong></td>
+          <td>{{vm.getTotalScore(true, vm.courseInformation.course_holes, 'yards')}}</td>
+          <td>{{vm.getTotalScore(true, vm.courseInformation.course_holes, 'par')}}</td>
+          <td>{{vm.getTotalScore(true, vm.courseInformation.course_holes, 'score')}}</td>
+          <td ng-if="vm.isBestHoleCard()">&nbsp;</td>
+        </tr>
+        <tr class="scorecard__totalsRow">
+          <td><strong>IN</strong></td>
+          <td>{{vm.getTotalScore(false, vm.courseInformation.course_holes, 'yards')}}</td>
+          <td>{{vm.getTotalScore(false, vm.courseInformation.course_holes, 'par')}}</td>
+          <td>{{vm.getTotalScore(false, vm.courseInformation.course_holes, 'score')}}</td>
           <td ng-if="vm.isBestHoleCard()">&nbsp;</td>
         </tr>
 
