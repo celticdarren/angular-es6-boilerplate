@@ -28,19 +28,20 @@ class ScorecardController {
   }
 
   $onInit() {
+
     if (this.isBestHoleCard()) {
       this.courseInformation = this.GetScoresService.getCourseInformation(this.selectedCourse);
-      this.scores = this.GetScoresService.getBestHoleScores(this.selectedCourse);
+      const scores = this.GetScoresService.getBestHoleScores(this.selectedCourse);
       this.courseInformation.course_holes.map((hole, index) => {
-        Object.assign(hole, this.scores[index]);
+        Object.assign(hole, scores[index]);
       });
     }
-
     if (this.isBestRoundCard()) {
       this.courseInformation = this.GetScoresService.getCourseInformation(this.selectedCourse);
-      this.scores = this.GetScoresService.getBestRoundScore(this.selectedCourse);
+      var scores = this.GetScoresService.getBestRoundScore(this.selectedCourse);
+      this.courseInformation.player_id = scores.player_id;
       this.courseInformation.course_holes.map((hole, index) => {
-        Object.assign(hole, this.scores[index]);
+        hole.score = scores.score[index];
       });
     }
   }
@@ -64,11 +65,13 @@ class ScorecardController {
     if (this.isBestRoundCard()) return 'isBestRoundCard';
   }
 
-  getTotalScore(isMidScore, courseScores, type) {
+  getTotalScore(scoreType, courseScores, type) {
     let range = {min: 0, max: 8};
 
-    if (!isMidScore) {
+    if (scoreType === 2) {
       range = {min: 9, max: 17};
+    } else if (scoreType === 3) {
+      range = {min: 0, max: 17}
     }
 
     switch (type) {
