@@ -1,3 +1,5 @@
+import 'lodash';
+
 export default function (CoreConstants) {
   'ngInject';
 
@@ -36,8 +38,7 @@ export default function (CoreConstants) {
 
     getBestRoundScore(course) {
       const courseScores = this.scores.filter((score) => score.course_id === course);
-
-      return this.scores.map((round) => {
+      return courseScores.map((round) => {
         return {
           player_id: round.player_id,
           score: round.score,
@@ -49,7 +50,8 @@ export default function (CoreConstants) {
     },
 
     getCourseInformation(selectedCourse) {
-      return CoreConstants.courses.find((course) => course.course_id === selectedCourse);
+      const courses = angular.copy(CoreConstants.courses);
+      return courses.find((course) => course.course_id === selectedCourse);
     },
   }
 }

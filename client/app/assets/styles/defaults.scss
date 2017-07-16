@@ -541,6 +541,7 @@ body {
   font: 62.5% 'lato', sans-serif;
   overflow-y: scroll !important;
   position: relative;
+  background-color:#e0f3dc;
 }
 
 h1 {
@@ -549,9 +550,9 @@ h1 {
   font-weight: 700;
 }
 h2 {
-  font-family: 'roboto', sans-serif;
-  font-size:2rem;
-  font-weight: 700;
+  font-family: 'Pacifico', cursive;
+  font-size:3rem;
+  font-weight: 400;
 }
 
 h3 {
@@ -559,4 +560,11 @@ h3 {
   font-size:1.735rem;
   font-weight: 400;
   margin-bottom:0.875rem
+}
+
+.page-title {
+  margin-top: 2rem;
+  h2 {
+    margin:0;
+  }
 }

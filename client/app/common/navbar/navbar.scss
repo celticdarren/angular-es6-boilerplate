@@ -6,10 +6,11 @@
 }
 
 nav {
-  padding-bottom:3rem;
   margin-bottom:1rem;
+  height:50px;
 
   &.mainNav {
+    margin-bottom: 0;
 
     .mainNav__list {
       a {

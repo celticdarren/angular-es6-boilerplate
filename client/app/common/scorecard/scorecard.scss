@@ -1,87 +1,124 @@
 @import '../../assets/styles/_globals';
 
 .scorecard {
-  font-size: 1.2rem;
-  border-collapse: separate !important;
-  border-radius:10px;
-  -moz-border-radius: 10px;
-  -webkit-border-radius: 10px;
-  overflow:hidden;
 
-  thead {
+  .scorecard__title {
+    padding-bottom:2rem;
+
+    h3 {
+      margin:0;
+      color:#000;
+    }
+  }
+
+  table {
+    font-size: 1.2rem;
+    overflow: hidden;
+    border-collapse: separate;
+    border-spacing: 0;
+
     tr {
-      background-color:#3f5221;
+      td:first-child {
+        padding-left: 1.5rem;
+        border-left:1px solid #000;
+      }
+      th:first-child {
+        padding-left: 1.5rem;
+      }
+      td:last-child {
+        padding-right: 1.5rem;
+      }
+      th:last-child {
+        padding-right: 1.5rem;
+      }
+
     }
-    th {
-      color:#FFF;
+
+    thead {
+      border: 0;
+
+      tr {
+        background-color: #C5003E;
+      }
+      th {
+        color: #FFF;
+      }
+    }
+    tbody {
+      border: 0;
+      tr {
+        &.scorecard__totalsRow {
+          background-color:#5a7155;
+          color:#FFF;
+          &.scorecard__totalsRow-total {
+            background-color:#0c2906;
+          }
+          td {
+
+          }
+        }
+      }
+
+      td {
+        border-bottom: 1px solid #000;
+        border-right: 1px solid #000;
+        font-size: 1rem;
+
+        &.bogey {
+          span {
+            border: 1px solid #000;
+            position: relative;
+            padding-left: 2px;
+            padding-right: 2px;
+          }
+        }
+
+        &.doubleBogey {
+          span {
+            border: 1px solid #000;
+            position: relative;
+            padding-left: 2px;
+            padding-right: 2px;
+            &:before {
+              content: ' ';
+              position: absolute;
+              border: 1px solid #000;
+              top: -3px;
+              left: -3px;
+              right: -3px;
+              bottom: -3px;
+            }
+          }
+        }
+        &.tripleBogey {
+          span {
+            border: 1px solid #000;
+            position: relative;
+            padding-left: 2px;
+            padding-right: 2px;
+            &:before {
+              content: ' ';
+              position: absolute;
+              border: 1px solid #000;
+              top: -3px;
+              left: -3px;
+              right: -3px;
+              bottom: -3px;
+            }
+            &:after {
+              content: ' ';
+              position: absolute;
+              border: 1px solid #000;
+              top: -5px;
+              left: -5px;
+              right: -5px;
+              bottom: -5px;
+            }
+          }
+        }
+      }
     }
   }
-  tbody {
-    tr{
-      background-color: #c0dc94;
-      &:nth-child(even) {
-        background-color: #f1ffdb;
-      }
-    }
-
-    td {
-      font-size: 1rem;
-
-      &.bogey {
-        span {
-          border: 1px solid #000;
-          position: relative;
-          padding-left:2px;
-          padding-right:2px;
-        }
-      }
-
-      &.doubleBogey {
-        span {
-          border: 1px solid #000;
-          position: relative;
-          padding-left:2px;
-          padding-right:2px;
-          &:before {
-            content: ' ';
-            position: absolute;
-            border: 1px solid #000;
-            top: -3px;
-            left: -3px;
-            right: -3px;
-            bottom: -3px;
-          }
-        }
-      }
-      &.tripleBogey {
-        span {
-          border: 1px solid #000;
-          position: relative;
-          padding-left:2px;
-          padding-right:2px;
-          &:before {
-            content: ' ';
-            position: absolute;
-            border: 1px solid #000;
-            top: -3px;
-            left: -3px;
-            right: -3px;
-            bottom: -3px;
-          }
-          &:after {
-            content: ' ';
-            position: absolute;
-            border: 1px solid #000;
-            top: -5px;
-            left: -5px;
-            right: -5px;
-            bottom: -5px;
-          }
-        }
-      }
-    }
-  }
-
 
   .scorecard__totalRow {
     background-color: #4e4e4e;
