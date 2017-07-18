@@ -1,13 +1,22 @@
 @import '../../assets/styles/_globals';
 
 header {
-  position: relative;
-  height:calc(100vh - 8rem);
-  min-height: 32rem;
-  padding-bottom: 3.75rem;
-  background: url('../../assets/images/banner.jpg') no-repeat center center/cover;
+  background: url(/assets/images/banner.jpg) no-repeat center/cover;
+  padding-top: 1rem;
+  padding-bottom: 2rem;
+  height:18rem;
 
-  img {
+  h1#logo {
+    font-family: 'Pacifico', cursive;
+    font-weight: 300;
+    color: #FFFFFF;
 
+    span {
+      font-family: 'lato', sans-serif;
+      display: block;
+      font-size:1rem;
+      font-weight: 400;
+    }
   }
 }
+
