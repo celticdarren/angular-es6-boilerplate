@@ -2,128 +2,81 @@
 
 .scorecard {
 
-  .scorecard__title {
-    padding-bottom:2rem;
-
-    h3 {
-      margin:0;
-      color:#000;
-    }
-  }
-
-  table {
-    font-size: 1.2rem;
-    overflow: hidden;
-    border-collapse: separate;
-    border-spacing: 0;
-
+  thead {
     tr {
-      td:first-child {
-        padding-left: 1.5rem;
-        border-left:1px solid #000;
-      }
-      th:first-child {
-        padding-left: 1.5rem;
-      }
-      td:last-child {
-        padding-right: 1.5rem;
-      }
-      th:last-child {
-        padding-right: 1.5rem;
-      }
+
+    }
+    th {
+
+    }
+  }
+
+  tbody {
+    tr{
 
     }
 
-    thead {
-      border: 0;
+    td {
+      font-size: 1rem;
 
-      tr {
-        background-color: #C5003E;
-      }
-      th {
-        color: #FFF;
-      }
-    }
-    tbody {
-      border: 0;
-      tr {
-        &.scorecard__totalsRow {
-          background-color:#5a7155;
-          color:#FFF;
-          &.scorecard__totalsRow-total {
-            background-color:#0c2906;
-          }
-          td {
-
-          }
+      &.bogey {
+        span {
+          border: 1px solid #000;
+          position: relative;
+          padding-left:2px;
+          padding-right:2px;
         }
       }
 
-      td {
-        border-bottom: 1px solid #000;
-        border-right: 1px solid #000;
-        font-size: 1rem;
-
-        &.bogey {
-          span {
+      &.doubleBogey {
+        span {
+          border: 1px solid #000;
+          position: relative;
+          padding-left:2px;
+          padding-right:2px;
+          &:before {
+            content: ' ';
+            position: absolute;
             border: 1px solid #000;
-            position: relative;
-            padding-left: 2px;
-            padding-right: 2px;
+            top: -3px;
+            left: -3px;
+            right: -3px;
+            bottom: -3px;
           }
         }
-
-        &.doubleBogey {
-          span {
+      }
+      &.tripleBogey {
+        span {
+          border: 1px solid #000;
+          position: relative;
+          padding-left:2px;
+          padding-right:2px;
+          &:before {
+            content: ' ';
+            position: absolute;
             border: 1px solid #000;
-            position: relative;
-            padding-left: 2px;
-            padding-right: 2px;
-            &:before {
-              content: ' ';
-              position: absolute;
-              border: 1px solid #000;
-              top: -3px;
-              left: -3px;
-              right: -3px;
-              bottom: -3px;
-            }
+            top: -3px;
+            left: -3px;
+            right: -3px;
+            bottom: -3px;
           }
-        }
-        &.tripleBogey {
-          span {
+          &:after {
+            content: ' ';
+            position: absolute;
             border: 1px solid #000;
-            position: relative;
-            padding-left: 2px;
-            padding-right: 2px;
-            &:before {
-              content: ' ';
-              position: absolute;
-              border: 1px solid #000;
-              top: -3px;
-              left: -3px;
-              right: -3px;
-              bottom: -3px;
-            }
-            &:after {
-              content: ' ';
-              position: absolute;
-              border: 1px solid #000;
-              top: -5px;
-              left: -5px;
-              right: -5px;
-              bottom: -5px;
-            }
+            top: -5px;
+            left: -5px;
+            right: -5px;
+            bottom: -5px;
           }
         }
       }
     }
   }
+
 
   .scorecard__totalRow {
-    background-color: #4e4e4e;
-    color: #FFFFFF;
-    font-weight: 700;
+
   }
 }
 

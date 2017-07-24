@@ -4,6 +4,7 @@ import HeadingModule from './heading';
 import NavbarModule from './navbar';
 import AuthModule from './auth';
 import GetScoresModule from './getScores';
+import CourseDescriptionModule from './courseDescription';
 
 const module = angular
   .module('app.common', [
@@ -12,7 +13,8 @@ const module = angular
     HeadingModule,
     NavbarModule,
     AuthModule,
-    GetScoresModule
+    GetScoresModule,
+    CourseDescriptionModule
   ]);
 
 export default module.name;
