@@ -38,7 +38,7 @@ class ScorecardController {
     }
     if (this.isBestRoundCard()) {
       this.courseInformation = this.GetScoresService.getCourseInformation(this.selectedCourse);
-      var scores = this.GetScoresService.getBestRoundScore(this.selectedCourse);
+      const scores = this.GetScoresService.getBestRoundScore(this.selectedCourse);
       this.courseInformation.player_id = scores.player_id;
       this.courseInformation.course_holes.map((hole, index) => {
         hole.score = scores.score[index];

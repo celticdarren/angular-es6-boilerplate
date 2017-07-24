@@ -10,8 +10,7 @@
   </div>
   <div class="row">
     <div class="small-12 columns">
-      <h3 ng-if="vm.isBestRoundCard()">{{vm.courseInformation.player_id}}</h3>
-      <table ng-class="vm.getRoundTypeClass()">
+      <table ng-class="vm.getRoundTypeClass()" class="scorecardTable">
         <thead>
         <tr>
           <th>Hole</th>
@@ -22,7 +21,7 @@
         </tr>
         </thead>
         <tbody>
-        <tr ng-repeat="hole in vm.courseInformation.course_holes | limitTo: 9">
+        <tr ng-repeat="hole in vm.courseInformation.course_holes.slice(0,9)">
           <td>{{hole.holeNumber}}</td>
           <td>{{hole.holeYards}}</td>
           <td>{{hole.holePar}}</td>
@@ -36,7 +35,7 @@
           <td>{{vm.getTotalScore(1, vm.courseInformation.course_holes, 'score')}}</td>
           <td ng-if="vm.isBestHoleCard()">&nbsp;</td>
         </tr>
-        <tr ng-repeat="hole in vm.courseInformation.course_holes | limitTo: -9">
+        <tr ng-repeat="hole in vm.courseInformation.course_holes.slice(9,18)">
           <td>{{hole.holeNumber}}</td>
           <td>{{hole.holeYards}}</td>
           <td>{{hole.holePar}}</td>
